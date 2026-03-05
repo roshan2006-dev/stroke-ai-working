@@ -9,12 +9,31 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
-# Django
 *.log
 local_settings.py
 db.sqlite3
+db.sqlite3-journal
+
+# Django
 media/
+staticfiles/
+*.pot
+*.pyc
+
+# ML Models
+*.pth
+*.h5
+*.keras
+ml_models/__pycache__/
+advanced_models/
+temp_uploads/
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/package-lock.json
+frontend/.cache/
 
 # IDE
 .vscode/
@@ -22,13 +41,13 @@ media/
 *.swp
 *.swo
 *~
+.DS_Store
 
-# Project specific
-*.csv
-*.xlsx
-*.xls
-Dataset_*.csv
-Results_data.csv
+# Uploads
+temp_uploads/
+media/scan_results/
 
-# Virtual Environment
-venv/
+# Environment
+.env
+.env.local
+.env.production

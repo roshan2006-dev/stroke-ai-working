@@ -29,10 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Remote_User',
     'Service_Provider',
+    'rest_framework',  # Make sure this is here
+    'api',  # Add this too
 ]
 
 
 MIDDLEWARE = [
+     'api.cors_middleware.SimpleCorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,3 +123,33 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Template/media')
 STATIC_ROOT = '/static/'
 
 STATIC_URL = '/static/'
+
+# CORS Settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]

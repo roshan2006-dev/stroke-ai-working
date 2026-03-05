@@ -1,5 +1,5 @@
 """stroke_risk_prediction URL Configuration"""
-from django.urls import re_path, path
+from django.urls import re_path, path, include  # Add 'include' here
 from django.contrib import admin
 from Remote_User import views as remoteuser
 from stroke_risk_prediction import settings
@@ -21,4 +21,6 @@ urlpatterns = [
     re_path(r'^train_model/$', serviceprovider.train_model, name='train_model'),
     re_path(r'^View_Stroke_Risk_Prediction_Type/$', serviceprovider.View_Stroke_Risk_Prediction_Type, name='View_Stroke_Risk_Prediction_Type'),
     re_path(r'^Download_Trained_DataSets/$', serviceprovider.Download_Trained_DataSets, name='Download_Trained_DataSets'),
+    path('api/', include('api.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
